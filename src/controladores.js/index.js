@@ -18,7 +18,13 @@ async function getDogsApi(){
             origin: e.origin
         }
     })
-    return data
+    let newData = data.sort((a, b) => {
+        if (a.life_span > b.life_span) return -1
+        if (a.life_span < b.life_span) return 1
+        return 0
+      })
+    return newData
+
 
 }
 async function getAllTemperaments(){
